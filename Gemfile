@@ -3,6 +3,7 @@ ruby '2.2.3'
 
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
+gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -22,8 +23,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
 
   gem 'puma'
   gem 'rails-i18n', '~> 4.0.0'
-end
 
