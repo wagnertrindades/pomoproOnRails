@@ -26,6 +26,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-  gem 'puma'
-  gem 'rails-i18n', '~> 4.0.0'
-
+gem 'puma'
+gem 'rails-i18n', '~> 4.0.0'
+gem 'devise'
