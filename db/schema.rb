@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151119164101) do
   enable_extension "plpgsql"
 
   create_table "timers", force: :cascade do |t|
-    t.string   "type"
+    t.string   "status"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

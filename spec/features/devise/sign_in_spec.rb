@@ -1,14 +1,10 @@
 require 'spec_helper'
 
 describe 'Log in and View timer' do
-    let!(:user){ User.create(email: "example@example.com", password: "example123") }
 
     context 'Enter in account' do
         it 'success' do
-            visit "/"
-            fill_in "Email", with: user.email
-            fill_in "Password", with: user.password
-            click_button "Log in"
+            sign_in
 
             expect(page).to have_content("Timer")
         end
