@@ -1,28 +1,33 @@
 <h1>Timer</h1>
 
-<% if @timers %>
 
-  <h2>Pomodoro's</h2>
-  <ul class="list-pomos">
-    <% @pomos.each do |p| %>
-      <li><%= p.status %></li>
+<h2>Pomodoro's</h2>
+<ul class="list-pomos">
+  <% @timers.each do |timer| %>
+    <% if timer.is_pomo? %>
+        <li><%= timer.status %></li>
     <% end %>
-  </ul>
-  
-  <h2>Break's</h2>
-  <ul class="list-breaks">
-    <% @breaks.each do |b| %>
-      <li><%= b.status %></li>
-    <% end %>
-  </ul>
+  <% end %>
+</ul>
 
-  <h2>Long Break's</h2>
-  <ul class="list-long-breaks">
-    <% @long_breaks.each do |lb| %>
-      <li><%= lb.status %></li>
+<h2>Break's</h2>
+<ul class="list-breaks">
+  <% @timers.each do |timer| %>
+    <% if timer.is_break? %>
+      <li><%= timer.status %></li>
     <% end %>
-  </ul>
-<% end %>
+  <% end %>
+</ul>
+
+<h2>Long Break's</h2>
+<ul class="list-long-breaks">
+  <% @timers.each do |timer| %>
+    <% if timer.is_long_break? %>
+      <li><%= timer.status %></li>
+    <% end %>
+  <% end %>
+</ul>
+
 
 <%= button_to "Pomodoro", user_timers_path(:user_id => current_user.id, :status => "pomo"), method: :create %>
 <%= button_to "Break", user_timers_path(:user_id => current_user.id, :status => "break"), method: :create %>
