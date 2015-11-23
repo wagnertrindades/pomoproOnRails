@@ -4,6 +4,13 @@ class TimersController < ApplicationController
         @user = current_user
         @timers = @user.timer.all
         @timer = current_user.timer.new
+
+        @pomos, @breaks, @long_breaks = [], [], []
+        @timers.each do |timer|
+            @pomos << timer if timer.status == "pomo"
+            @breaks << timer if timer.status == "break"
+            @long_breaks << timer if timer.status == "long_break"
+        end
     end
 
     def create
