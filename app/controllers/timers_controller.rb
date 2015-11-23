@@ -18,10 +18,10 @@ class TimersController < ApplicationController
 
         if @timer.save
             flash[:success] = "Pomodoro Concluido"
-            redirect_to root_path
+            redirect_to user_timers_path
         else
             flash[:error] = "Problema em concluir Pomodoro."
-            render :index
+            render user_timers_path
         end
     end
 
