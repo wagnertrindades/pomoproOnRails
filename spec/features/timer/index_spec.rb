@@ -9,7 +9,8 @@ describe 'All actions in the index timer' do
             click_button "Pomodoro"
 
             expect(Timer.count).to eq(1)
-            expect(page.all(".list-pomos li").size).to eq(1) 
+            expect(page.all(".list-pomos li").size).to eq(1)
+            expect(page).to have_content("Pomodoro Concluido")
         end
 
         it 'Add break' do
@@ -18,7 +19,8 @@ describe 'All actions in the index timer' do
             click_button "Break"
 
             expect(Timer.count).to eq(1)
-            expect(page.all(".list-breaks li").size).to eq(1) 
+            expect(page.all(".list-breaks li").size).to eq(1)
+            expect(page).to have_content("Break Concluido") 
         end
 
         it 'Add long break' do
@@ -27,7 +29,8 @@ describe 'All actions in the index timer' do
             click_button "Long Break"
 
             expect(Timer.count).to eq(1)
-            expect(page.all(".list-long-breaks li").size).to eq(1) 
+            expect(page.all(".list-long-breaks li").size).to eq(1)
+            expect(page).to have_content("Long Break Concluido") 
         end
 
     end
