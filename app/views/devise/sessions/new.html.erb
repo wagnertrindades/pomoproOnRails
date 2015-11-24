@@ -1,24 +1,7 @@
 
 <header>
 
-    <!-- menu -->
-    <nav class="white">
-        <div class="nav-wrapper container">
-            <a href="#!" class="brand-logo">Pomopro</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="small material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#">Entrar</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><%= link_to "Cadastre-se", new_registration_path(resource_name) %></li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a href="#">Entrar</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><%= link_to "Cadastre-se", new_registration_path(resource_name) %></li>
-            </ul>
-        </div>
-    </nav>
-    <!-- /menu -->
+    <%= render "devise/shared/menu" %>
 
     <!-- banner -->
     <div id="index-banner" class="parallax-container">
@@ -49,8 +32,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                          <%= f.password_field :password, autocomplete: "off", class: "validate" %>
-                                          <%= f.label :password %><br />
+                                            <%= f.password_field :password, autocomplete: "off", class: "validate" %>
+                                            <%= f.label :password %><br />
                                         </div>
                                     </div>
                                     <div class="card-action">
@@ -221,50 +204,8 @@
     <!-- /como usar -->
 </main>
 
-<footer class="page-footer red">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Pomopro</h5>
-        <p class="grey-text text-lighten-4">Utilize a técnica Pomodoro, e faça mais em menos tempo...</p>
-      </div>
-      <div class="col l2 offset-l4 s12">
-        <h5 class="white-text">Social Links</h5>
-        <ul class="social-links">
-            <li>
-                <a class="grey-text text-lighten-3 flat-icon" href="#!">
-                    <i class="flaticon-facebook29"></i>
-                </a>
-            </li>
-            <li>
-                <a class="grey-text text-lighten-3 flat-icon" href="#!">
-                    <i class="flaticon-twitter2"></i>
-                </a>
-            </li>
-            <li>
-                <a class="grey-text text-lighten-3 flat-icon" href="#!">
-                    <i class="flaticon-github12"></i>
-                </a>
-            </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-    © 2015 Copyright - Wagner Trindade
-    <a class="grey-text text-lighten-4 right" href="#!">wtrindades.com</a>
-    </div>
-  </div>
-</footer>
+<%= render 'devise/shared/footer' %>
 
-<!-- button menu responsive -->
-<script>
-    $( document ).ready(function(){
-        $(".button-collapse").sideNav();
-    });
-</script>
-<!-- /button menu responsive -->
 <!-- parallax -->
 <script>
     $(document).ready(function(){

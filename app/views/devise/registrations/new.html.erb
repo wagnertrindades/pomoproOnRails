@@ -1,29 +1,64 @@
-<h2>Sign up</h2>
+<header>
+  <%= render "devise/shared/menu" %>
+</header>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<main>
+    
+    <!-- como usar -->
+    <div id="cadastrar" class="container">
+        <div class="section">
+            <!-- title -->
+            <div class="row center">
+                <h3><i class="medium material-icons red-text">settings</i></h3>
+                <h4>Começe a utilizar agora mesmo...</h4>
+                <p>Inteiramente gratuito.</p>
+            </div>
+            <!-- /title -->
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+            <!-- card cadastre-se -->
+                <div class="row center">
+                    <div class="col s12 l4 offset-l4">
+                        <div class="card white z-depth-3">
+                            <div class="card-content">
+                                <span class="card-title">Cadastre-se</span>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+                                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "col s12" }) do |f| %>
+                                    <%= devise_error_messages! %>
 
-<%= render "devise/shared/links" %>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <%= f.email_field :email, autofocus: true, class: "validate" %>
+                                            <%= f.label :email %>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <%= f.password_field :password, autocomplete: "off", class: "validate" %>
+                                            <%= f.label :password %>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <%= f.password_field :password_confirmation, autocomplete: "off", class: "validate" %>
+                                            <%= f.label :password_confirmation %><br />
+                                        </div>
+                                    </div>
+                                    <div class="card-action">
+                                        <%= f.submit "Cadastrar", class: "btn waves-effect waves-light" %>
+                                    </div>
+                                <% end %>
+
+                                <%= render "devise/shared/links" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card cadastre-se -->
+        </div>
+    </div>
+    <!-- /como usar -->
+</main>
+
+<%= render 'devise/shared/footer' %>
