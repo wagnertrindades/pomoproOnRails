@@ -1,32 +1,7 @@
 <h1>Timer</h1>
 
 
-<h2>Pomodoro's</h2>
-<ul class="list-pomos">
-  <% @timers.each do |timer| %>
-    <% if timer.is_pomo? %>
-        <li><%= timer.status %></li>
-    <% end %>
-  <% end %>
-</ul>
-
-<h2>Break's</h2>
-<ul class="list-breaks">
-  <% @timers.each do |timer| %>
-    <% if timer.is_break? %>
-      <li><%= timer.status %></li>
-    <% end %>
-  <% end %>
-</ul>
-
-<h2>Long Break's</h2>
-<ul class="list-long-breaks">
-  <% @timers.each do |timer| %>
-    <% if timer.is_long_break? %>
-      <li><%= timer.status %></li>
-    <% end %>
-  <% end %>
-</ul>
+<%= render "show_timer_lists" %>
 
 
 <%= button_to "Pomodoro", user_timers_path(:user_id => current_user.id, :status => "pomo"), method: :create %>
@@ -34,3 +9,4 @@
 <%= button_to "Long Break", user_timers_path(:user_id => current_user.id, :status => "long_break"), method: :create %>
 
 <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+

@@ -9,6 +9,7 @@ class TimersController < ApplicationController
     def create
         @timer = current_user.timer.new(:status => params[:status], :user_id => params[:user_id])
 
+
         if @timer.save
             if @timer.status == "pomo"
                 flash[:success] = "Pomodoro Concluido"
@@ -22,6 +23,7 @@ class TimersController < ApplicationController
             flash[:error] = "Problema em concluir timer."
             render user_timers_path
         end
+
     end
 
 end

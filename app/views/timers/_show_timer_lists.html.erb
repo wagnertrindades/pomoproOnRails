@@ -1,0 +1,27 @@
+
+<h2>Pomodoro's</h2>
+<ul class="list-pomos">
+  <% @timers.each do |timer| %>
+    <% if timer.is_pomo? %>
+        <li><%= timer.status %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h2>Break's</h2>
+<ul class="list-breaks">
+  <% @timers.each do |timer| %>
+    <% if timer.is_break? %>
+      <li><%= timer.status %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h2>Long Break's</h2>
+<ul class="list-long-breaks">
+  <% @timers.each do |timer| %>
+    <% if timer.is_long_break? %>
+      <li><%= timer.status %></li>
+    <% end %>
+  <% end %>
+</ul>
