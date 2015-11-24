@@ -1,7 +1,7 @@
 <% if @timer.status == "pomo" %>
-    $(".list-pomos").append("<li>test</li>");
+    $(".list-pomos").append("<li class='li-timers'><i class='flaticon-vegetable10'></i></li>");
 <% elsif @timer.status == "break" %>
-    $(".list-breaks").append("<li>test</li>");
+    $(".list-breaks").append("<li class='li-timers'><i class='flaticon-hotdrink2'></i></li>");
 <% else %>
-    $(".list-long-breaks").append("<li>test</li>");
+    $(".list-long-breaks").append("<li class='li-timers'><i class='flaticon-coffee124'></i></li>");
 <% end %>

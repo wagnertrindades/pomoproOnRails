@@ -1,8 +1,8 @@
 
 <ul class="collapsible" data-collapsible="expandable">
     <li>
-        <div class="collapsible-header teal lighten-4">
-            <strong>Hoje</strong>
+        <div class="collapsible-header teal lighten-2">
+          <span class="title-timer-lists">Hoje</span>
         </div>
     </li>
     <li id="pomodoros-list">
@@ -10,11 +10,11 @@
             <i class="material-icons red-text">play_circle_outline</i>
             Pomodoro's
         </div>
-        <div class="collapsible-body teal lighten-3">
+        <div class="collapsible-body red lighten-5">
           <ul class="list-pomos">
             <% @timers.each do |timer| %>
               <% if timer.is_pomo? %>
-                  <li><%= timer.status %></li>
+                  <li class="li-timers"><i class="flaticon-vegetable10"></i></li>
               <% end %>
             <% end %>
           </ul>
@@ -25,11 +25,11 @@
             <i class="material-icons blue-text">replay_5</i>
             Break's
         </div>
-        <div class="collapsible-body teal lighten-3">
+        <div class="collapsible-body blue lighten-5">
           <ul class="list-breaks">
             <% @timers.each do |timer| %>
               <% if timer.is_break? %>
-                <li><%= timer.status %></li>
+                <li class="li-timers"><i class="flaticon-hotdrink2"></i></li>
               <% end %>
             <% end %>
           </ul>
@@ -40,11 +40,11 @@
             <i class="material-icons teal-text">replay_30</i>
             Long Break's
         </div>
-        <div class="collapsible-body teal lighten-3">
+        <div class="collapsible-body teal lighten-5">
           <ul class="list-long-breaks">
             <% @timers.each do |timer| %>
               <% if timer.is_long_break? %>
-                <li><%= timer.status %></li>
+                <li class="li-timers"><i class="flaticon-coffee124"></i></li>
               <% end %>
             <% end %>
           </ul>
