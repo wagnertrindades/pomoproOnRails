@@ -1,3 +1,64 @@
 // Place all the styles related to the Timers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*====================================*\
+    Aside
+\*====================================*/
+.aside{
+    height: 100%;
+    position: fixed;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Avatar */
+.collection .collection-item.avatar{
+    min-height: 84px;
+    padding-left: 92px;
+}
+.collection .collection-item.avatar .circle{
+    width: 60px;
+    height: 60px;
+}
+.collection .collection-item.avatar .secondary-content{
+    top:30px;
+}
+
+/* Buttons Footer */
+.btns-footer{
+    position: absolute; bottom: 10px; left: 10px;
+}
+
+/*====================================*\
+    Content
+\*====================================*/
+#content.content{
+    height: 100%;
+    padding: 0;
+}
+
+/* Title */
+nav.top-nav {
+    height: 122px;
+    box-shadow: none;
+}
+nav.top-nav a.page-title {
+    line-height: 122px;
+    font-size: 48px;
+}
+
+.content-crono,
+.content-perfil{
+    margin-top: 10rem;
+}
+
+/* Botoes pomodoro */
+.btn-large{
+    margin: 0 5px;
+}
+
+/* Numero Cronometro */
+.crono-number{
+    font-size: 7rem;
+    margin: 4rem 0;
+}

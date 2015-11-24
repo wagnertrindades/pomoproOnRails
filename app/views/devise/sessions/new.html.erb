@@ -1,26 +1,293 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<header>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <!-- menu -->
+    <nav class="white">
+        <div class="nav-wrapper container">
+            <a href="#!" class="brand-logo">Pomopro</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="small material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Entrar</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><%= link_to "Cadastre-se", new_registration_path(resource_name) %></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="#">Entrar</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><%= link_to "Cadastre-se", new_registration_path(resource_name) %></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /menu -->
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <!-- banner -->
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="container">
+
+                <!-- titles -->
+                <br><br>
+                <h1 class="header center white-text">Pomopro</h1>
+                <div class="row center">
+                    <h5 class="header col s12 white-text light">Utilize a técnica Pomodoro, e faça mais em menos tempo...</h5>
+                </div>
+                <!-- /titles -->
+
+                <!-- card login -->
+                <div class="row center">
+                    <div class="col s12 l4 offset-l4">
+                        <div class="card white z-depth-3">
+                            <div class="card-content">
+                                <span class="card-title">Login</span>
+
+                                <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "col s12"}) do |f| %>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <%= f.email_field :email, autofocus: true, class: "validate" %>
+                                            <%= f.label :email %>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                          <%= f.password_field :password, autocomplete: "off", class: "validate" %>
+                                          <%= f.label :password %><br />
+                                        </div>
+                                    </div>
+                                    <div class="card-action">
+                                        <%= f.submit "Entrar", class: "btn waves-effect waves-light" %>
+                                    </div>
+                                <% end %>
+
+                                <%= render "devise/shared/links" %>
+                               <!--  <div>Não é cadastrado? <a href="#">Cadastre-se</a></div>
+                                <div>Esqueceu sua senha? <a href="#">Nova senha</a></div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /card login -->
+
+                <br><br>
+            </div>
+        </div>
+        <div class="parallax"><img src="//photos-5.dropbox.com/t/2/AAA66t6U1TpwNlkoqFGTpfVH3m4qz5LD79ZRVbeD5sxTpw/12/339617692/jpeg/32x32/1/_/1/2/background1.jpg/ENapo9MCGMcEIAcoBw/bZH0RYrrW2rDZmCJfNKLMMqcLUdaXqu1okrNm4UPAKE?size=1600x1200&size_mode=3" alt="Unsplashed background img 1"></div>
     </div>
-  <% end -%>
+    <!-- /banner -->
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+</header>
+<main>
+    <div class="container">
+        <div class="section">
+          <!-- icon section   -->
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center red-text"><i class="medium material-icons">trending_up</i></h2>
+                        <h5 class="center">Aumento de Produtividade</h5>
+
+                        <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center red-text"><i class="medium material-icons">track_changes</i></h2>
+                        <h5 class="center">Mais Foco</h5>
+
+                        <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center red-text"><i class="medium material-icons">perm_identity</i></h2>
+                        <h5 class="center">Mais tempo pra você</h5>
+
+                        <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- /icon section -->
+        </div>
+    </div>
+
+    <!-- parallax 2 -->
+    <div class="parallax-container valign-wrapper parallax-small">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light white-text">Otimize o seu tempo agora mesmo, e trabalhe ou estude com mais foco e atenção.</h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="//photos-2.dropbox.com/t/2/AACC8teJvFVtglP6jQY5nJ8DsnyGXNMHuTuE7GwJJXc9kg/12/339617692/jpeg/32x32/1/_/1/2/background2.jpg/ENapo9MCGMcEIAcoBw/OkXExVzeJDCUHl8WA9HEEuE-ocVA6_FK18FSFevlfmI?size=1600x1200&size_mode=3" alt="Unsplashed background img 2"></div>
+    </div>
+    <!-- /parallax 2 -->
+    
+    <!-- sobre -->
+    <div id="sobre" class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col s12 center">
+                    <h3><i class="medium mdi-content-send teal-text lighten-2"></i></h3>
+                    <h4>Sobre a Técnica Pomodoro</h4>
+                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+                </div>
+            </div>
+            <div class="row center">
+                <div class="col s12 m2 offset-m1">
+                    <span class="large-numbers">1</span>
+                    <p><strong>Decida</strong> qual tarefa vai realizar</p>
+                </div>
+                <div class="col s12 m2">
+                    <span class="large-numbers">2</span>
+                    <p>Cronômetre <strong>25 minutos</strong>.</p>
+                </div>
+                <div class="col s12 m2">
+                    <span class="large-numbers">3</span>
+                    <p><strong>Trabalhe</strong> na tarefa até o alarme soar.</p>
+                </div>
+                <div class="col s12 m2">
+                    <span class="large-numbers">4</span>
+                    <p>Faça um pequeno <strong>intervalo</strong> de 5 minutos.</p>
+                </div>
+                <div class="col s12 m2">
+                    <span class="large-numbers">5</span>
+                    <p>Faça um <strong>intervalo</strong> longo de 15-30 minutos.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m8 offset-m1 border-custom center">
+                    <p>Repita 4 vezes</p>                            
+                </div>
+            </div>
+            <div class="row">
+                <ol class="collection">
+                    <li class="collection-item">
+                        Liste tudo o que você precisa fazer;
+                    </li>
+                    <li class="collection-item">
+                        Escolha uma prioridade, algo que você não deve deixar para depois;
+                    </li>
+                    <li class="collection-item">
+                        Configure seu pomodoro através do celular (apps abaixo), do marinaratimer.com ou outro controle de tempo que escolher;
+                    </li>
+                    <li class="collection-item">
+                        Concentre-se no estabelecido até o alarme do fim do pomodoro tocar;
+                    </li>
+                    <li class="collection-item">
+                        Como pomodoro é uma unidade inteira (não existe meio pomodoro), mantenha uma lista para “Atividades inesperadas” ao lado da mesa em que está trabalhando. Se pensar em fazer algo não relacionado a sua tarefa atual, anote nessa folha para lembrar de fazer depois.&nbsp;Isso serve para comer, tomar água, fechar a cortina, atender ao telefone, olhar facebook ou email.
+                    </li>
+                    <li class="collection-item">
+                        Quando o alarme tocar, faça uma pausa de 5 minutos, relaxando a mente. Só então&nbsp;comece um novo pomodoro.
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /sobre -->
+
+    <!-- parallax 3 -->
+    <div class="parallax-container valign-wrapper parallax-small">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light white-text">Tudo pronto para você usar essa técnica da melhor forma possivel, e o melhor é free.</h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="//photos-6.dropbox.com/t/2/AACdRpZAJfgmzQ6jC4OHZOAhUi_VRXPO7SRmLFVUPMMi8g/12/339617692/jpeg/32x32/1/_/1/2/background3.jpg/ENapo9MCGMcEIAcoBw/4SKdcAdGTFcPD1bbArfs5PtzmkDPzQbOuFxjm3AV5iQ?size=1600x1200&size_mode=3" alt="Unsplashed background img 2"></div>
+    </div>
+    <!-- /parallax 3 -->
+    
+    <!-- como usar -->
+    <div id="cadastrar" class="container">
+        <div class="section">
+            <!-- title -->
+            <div class="row center">
+                <h3><i class="medium material-icons red-text">settings</i></h3>
+                <h4>E agora, como usar?</h4>
+                <p>Cadastre-se e começe a usar agora mesmo, é inteiramente gratuito.</p>
+            </div>
+            <!-- /title -->
+
+            <!-- button cadastre -->
+            <div class="row center">
+                <%= link_to "Cadastre-se", new_registration_path(resource_name), class: "waves-effect waves-light btn-large btn-cadastrar" %>
+            </div>
+            <!-- button cadastre -->
+        </div>
+    </div>
+    <!-- /como usar -->
+</main>
+
+<footer class="page-footer red">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Pomopro</h5>
+        <p class="grey-text text-lighten-4">Utilize a técnica Pomodoro, e faça mais em menos tempo...</p>
+      </div>
+      <div class="col l2 offset-l4 s12">
+        <h5 class="white-text">Social Links</h5>
+        <ul class="social-links">
+            <li>
+                <a class="grey-text text-lighten-3 flat-icon" href="#!">
+                    <i class="flaticon-facebook29"></i>
+                </a>
+            </li>
+            <li>
+                <a class="grey-text text-lighten-3 flat-icon" href="#!">
+                    <i class="flaticon-twitter2"></i>
+                </a>
+            </li>
+            <li>
+                <a class="grey-text text-lighten-3 flat-icon" href="#!">
+                    <i class="flaticon-github12"></i>
+                </a>
+            </li>
+        </ul>
+      </div>
+    </div>
   </div>
-<% end %>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2015 Copyright - Wagner Trindade
+    <a class="grey-text text-lighten-4 right" href="#!">wtrindades.com</a>
+    </div>
+  </div>
+</footer>
 
-<%= render "devise/shared/links" %>
+<!-- button menu responsive -->
+<script>
+    $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+    });
+</script>
+<!-- /button menu responsive -->
+<!-- parallax -->
+<script>
+    $(document).ready(function(){
+        $('.parallax').parallax();
+    });
+</script>
+<!-- /parallax -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
