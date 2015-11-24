@@ -2,7 +2,7 @@ class TimersController < ApplicationController
     
     def index
         @user = current_user
-        @timers = @user.timer.all
+        @timers = @user.timer.where(created_at: (Time.now.at_beginning_of_day)..Time.now.at_end_of_day)
         @timer = current_user.timer.new
     end
 
