@@ -18,6 +18,7 @@ class TimersController < ApplicationController
             else
                 flash[:success] = "Long Break Concluido"
             end
+            
             redirect_to user_timers_path
         else
             flash[:error] = "Problema em concluir timer."
