@@ -8,7 +8,7 @@ describe 'Log in and View timer' do
 
             click_link "Sair"
 
-            expect(page).to have_content("Log in")
+            expect(page).to have_content("Login")
         end
     end
 end

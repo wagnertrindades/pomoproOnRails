@@ -7,6 +7,6 @@ module DeviseHelpers
         visit "/"
         fill_in "Email", with: options[:email]
         fill_in "Password", with: options[:password]
-        click_button "Log in"
+        click_button "Entrar"
     end
 end
