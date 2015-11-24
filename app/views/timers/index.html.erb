@@ -44,21 +44,20 @@
             <!-- /title -->
 
             <div class="col m6 offset-m3 content-crono">
-
                 <!-- buttons pomodoro -->
                 <div class="center">
-                    <%= button_to(user_timers_path(:user_id => current_user.id, :status => "pomo"), method: :create, class: "waves-effect waves-light btn-large red", id: "pomo-timer") do %>
+                    <a id="pomo-timer" class="waves-effect waves-light btn-large red">
                         <i class="material-icons left">play_circle_outline</i>
                         Pomodoro
-                    <% end %>
-                    <%= button_to(user_timers_path(:user_id => current_user.id, :status => "break"), method: :create, class: "waves-effect waves-light btn-large blue", id: "short-break") do %>
+                    </a>
+                    <a id="short-break" class="waves-effect waves-light btn-large blue">
                         <i class="material-icons left">replay_5</i>
                         Break
-                    <% end %>
-                    <%= button_to(user_timers_path(:user_id => current_user.id, :status => "long_break"), method: :create, class: "waves-effect waves-light btn-large", id: "long-break") do %>
+                    </a>
+                    <a id="long-break" class="waves-effect waves-light btn-large">
                         <i class="material-icons left">replay_30</i>
                         Long Break
-                    <% end %>
+                    </a>
                 </div>
                 <!-- buttons pomodoro -->
 
@@ -89,6 +88,14 @@
                 </div>
                 <!-- /buttons play -->
 
+                <!-- buttons pomodoro create db -->
+                <div class="real-buttons">
+                    <%= button_to "Pomodoro", user_timers_path(:user_id => current_user.id, :status => "pomo"), method: :create, remote: true, id:"real-button-pomo" %> 
+                    <%= button_to "Break", user_timers_path(:user_id => current_user.id, :status => "break"), method: :create, remote: true, id:"real-button-break" %>
+                    <%= button_to "Long Break", user_timers_path(:user_id => current_user.id, :status => "long_break"), method: :create, remote: true, id:"real-button-long-break" %>
+                </div>
+                <!-- /buttons pomodoro create db -->
+
             </div>                
 
         </div>
@@ -100,6 +107,7 @@
 
 
 <%= javascript_include_tag 'timer.js' %> 
+<%= javascript_include_tag 'timers.coffee' %> 
 
 
 

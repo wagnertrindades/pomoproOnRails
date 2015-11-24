@@ -19,7 +19,10 @@ class TimersController < ApplicationController
                 flash[:success] = "Long Break Concluido"
             end
             
-            redirect_to user_timers_path
+            respond_to do |format|
+                format.html { redirect_to user_timers_path }
+                format.js # render timers/create.js.erb
+            end
         else
             flash[:error] = "Problema em concluir timer."
             render user_timers_path

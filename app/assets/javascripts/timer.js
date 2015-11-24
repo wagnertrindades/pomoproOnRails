@@ -9,6 +9,21 @@ var movimentBar = 0;
 var segundo = 60;
 var minuto = 24;
  
+// Real Buttons
+var realPomo = document.getElementById("real-button-pomo");
+var realBreak = document.getElementById("real-button-break");
+var realLongBreak = document.getElementById("real-button-long-break");
+
+function createTimerBackEnd(){
+    if(minTotal == 24 && segTotal == 60){
+        realPomo.click();
+    }else if(minTotal == 4 && segTotal == 60){
+        realBreak.click();
+    }else{
+        realLongBreak.click();
+    }
+}
+
 function timer(){   
     if (segundo > 0){
         segundo--;
@@ -20,7 +35,11 @@ function timer(){
         if(minuto < 10){minuto = "0"+ minuto}
     }
     htmlTimer.innerText = minuto + ":" + segundo;
-    if(minuto == 0 && segundo == 0){movimentBar=100}
+    if(minuto == 0 && segundo == 0){
+        movimentBar=100;
+        createTimerBackEnd();
+        stop.click();
+    }
     children.style.width = movimentBar + "%";
 
 }

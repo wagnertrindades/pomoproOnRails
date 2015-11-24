@@ -1,0 +1,7 @@
+<% if @timer.status == "pomo" %>
+    $(".list-pomos").append("<li>test</li>");
+<% elsif @timer.status == "break" %>
+    $(".list-breaks").append("<li>test</li>");
+<% else %>
+    $(".list-long-breaks").append("<li>test</li>");
+<% end %>
