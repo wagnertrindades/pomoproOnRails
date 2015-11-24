@@ -1,27 +1,53 @@
 
-<h2>Pomodoro's</h2>
-<ul class="list-pomos">
-  <% @timers.each do |timer| %>
-    <% if timer.is_pomo? %>
-        <li><%= timer.status %></li>
-    <% end %>
-  <% end %>
-</ul>
-
-<h2>Break's</h2>
-<ul class="list-breaks">
-  <% @timers.each do |timer| %>
-    <% if timer.is_break? %>
-      <li><%= timer.status %></li>
-    <% end %>
-  <% end %>
-</ul>
-
-<h2>Long Break's</h2>
-<ul class="list-long-breaks">
-  <% @timers.each do |timer| %>
-    <% if timer.is_long_break? %>
-      <li><%= timer.status %></li>
-    <% end %>
-  <% end %>
+<ul class="collapsible" data-collapsible="expandable">
+    <li>
+        <div class="collapsible-header teal lighten-4">
+            <strong>Hoje</strong>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header">
+            <i class="material-icons red-text">play_circle_outline</i>
+            Pomodoro's
+        </div>
+        <div class="collapsible-body teal lighten-3">
+          <ul class="list-pomos">
+            <% @timers.each do |timer| %>
+              <% if timer.is_pomo? %>
+                  <li><%= timer.status %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header">
+            <i class="material-icons blue-text">replay_5</i>
+            Break's
+        </div>
+        <div class="collapsible-body teal lighten-3">
+          <ul class="list-breaks">
+            <% @timers.each do |timer| %>
+              <% if timer.is_break? %>
+                <li><%= timer.status %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header">
+            <i class="material-icons teal-text">replay_30</i>
+            Long Break's
+        </div>
+        <div class="collapsible-body teal lighten-3">
+          <ul class="list-long-breaks">
+            <% @timers.each do |timer| %>
+              <% if timer.is_long_break? %>
+                <li><%= timer.status %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+    </li>
 </ul>

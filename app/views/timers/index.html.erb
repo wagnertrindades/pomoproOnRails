@@ -1,11 +1,112 @@
-<h1>Timer</h1>
+
+<main>
+
+    <div class="row">
+        <!-- aside -->
+        <div class="col s3 aside blue-grey darken-3">
+            <!-- perfil -->
+            <div class="collection">
+                <div class="collection-item avatar valign-wrapper">
+                    <img src="img/mussum.jpg" alt="" class="circle">
+                    <span class="title valign">Mussum da Silvis</span>
+                    <a href="#!" class="secondary-content valign"><i class="material-icons">perm_identity</i></a>
+                </div>
+            </div>
+            <!-- /perfil -->
+
+            <!-- pomodoros -->
+            <%= render 'show_timer_lists' %>
+            <!-- /pomodoros -->
+
+            <!-- sair -->
+            <div class="btns-footer">
+
+                <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn red close") do %>
+                    <i class="material-icons left">input</i>Sair
+                <% end %>
+            </div>
+            <!-- /sair -->
+        </div>
+        <!-- /aside -->
+        
+        <!-- content -->
+        <div id="content" class="col s9 content offset-s3">
+            <!-- title -->
+            <nav class="top-nav teal">
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a class="page-title">
+                            Pomopro Timer
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <!-- /title -->
+
+            <div class="col m6 offset-m3 content-crono">
+
+                <!-- buttons pomodoro -->
+                <div class="center">
+                    <%= button_to(user_timers_path(:user_id => current_user.id, :status => "pomo"), method: :create, class: "waves-effect waves-light btn-large red", id: "pomo-timer") do %>
+                        <i class="material-icons left">play_circle_outline</i>
+                        Pomodoro
+                    <% end %>
+                    <%= button_to(user_timers_path(:user_id => current_user.id, :status => "break"), method: :create, class: "waves-effect waves-light btn-large blue", id: "short-break") do %>
+                        <i class="material-icons left">replay_5</i>
+                        Break
+                    <% end %>
+                    <%= button_to(user_timers_path(:user_id => current_user.id, :status => "long_break"), method: :create, class: "waves-effect waves-light btn-large", id: "long-break") do %>
+                        <i class="material-icons left">replay_30</i>
+                        Long Break
+                    <% end %>
+                </div>
+                <!-- buttons pomodoro -->
+
+                <!-- number -->
+                <div id="timer" class="crono-number center">
+                    25:00
+                </div>
+                <!-- /number -->
+
+                <!-- progress -->
+                <div id="progress-bar" class="progress red lighten-4">
+                    <div class="determinate red"></div>
+                </div>
+                <!-- /progress -->
+
+                <!-- buttons play -->
+                <div class="center">
+                    <a id="play-timer" class="btn-floating btn-large waves-effect waves-light red">
+                        <i class="material-icons">play_arrow</i>
+                    </a>
+                    <a id="pause-timer" class="btn-floating btn-large waves-effect waves-light blue">
+                        <i class="material-icons">pause</i>
+                    </a>
+                    <a id="stop-timer" class="btn-floating btn-large waves-effect waves-light teal">
+                        <i class="material-icons">stop</i>
+                    </a>
+                    
+                </div>
+                <!-- /buttons play -->
+
+            </div>                
+
+        </div>
+        <!-- /content -->
+
+    </div>
+
+</main>
 
 
-<%= render "show_timer_lists" %>
+<%= javascript_include_tag 'timer.js' %> 
 
 
-<%= button_to "Pomodoro", user_timers_path(:user_id => current_user.id, :status => "pomo"), method: :create %>
-<%= button_to "Break", user_timers_path(:user_id => current_user.id, :status => "break"), method: :create %>
-<%= button_to "Long Break", user_timers_path(:user_id => current_user.id, :status => "long_break"), method: :create %>
 
-<%= link_to "Sair", destroy_user_session_path, method: :delete %>
+
+
+
+
+
+
+
