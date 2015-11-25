@@ -4,16 +4,21 @@
       <title>PomoproOnRails</title>
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
       <%= stylesheet_link_tag    'application', '//fonts.googleapis.com/icon?family=Material+Icons' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <%= csrf_meta_tags %>
     </head>
     <body>
 
       <% flash.each do |name, msg| %>
-          <%= content_tag(:div, msg, class: "info #{name}" ) %>
+          <script>
+            var $toastContent = $('<%= content_tag(:div, msg, class: "info #{name}" ) %>');
+            Materialize.toast($toastContent, 5000);
+          </script>
       <% end %>
 
       <%= yield %>
-      
-      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+
+      <%= yield :js %>
     </body>
 </html>
