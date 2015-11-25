@@ -1,7 +1,10 @@
 <% if @timer.status == "pomo" %>
     $(".list-pomos").append("<li class='li-timers'><i class='flaticon-vegetable10'></i></li>");
+    Materialize.toast("Pomodoro Concluido", 5000);
 <% elsif @timer.status == "break" %>
     $(".list-breaks").append("<li class='li-timers'><i class='flaticon-hotdrink2'></i></li>");
+    Materialize.toast("Break Concluido", 5000);
 <% else %>
     $(".list-long-breaks").append("<li class='li-timers'><i class='flaticon-coffee124'></i></li>");
+    Materialize.toast("Long Break Concluido", 5000);
 <% end %>

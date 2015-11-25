@@ -12,13 +12,6 @@ class TimersController < ApplicationController
 
 
         if @timer.save
-            if @timer.status == "pomo"
-                flash[:success] = "Pomodoro Concluido"
-            elsif @timer.status == "break"
-                flash[:success] = "Break Concluido"
-            else
-                flash[:success] = "Long Break Concluido"
-            end
             
             respond_to do |format|
                 format.html { redirect_to user_timers_path }
