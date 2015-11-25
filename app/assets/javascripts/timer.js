@@ -4,106 +4,62 @@
 
 var htmlTimer = document.getElementById('timer');
 var segTotal = 60, minTotal = 24;
+
 // Progress Bar
 var progressBar = document.querySelector("#progress-bar");
 var children = document.querySelector("#progress-bar .determinate");
-var movimentBar = 0;
+var movementBar = 0;
 
-var segundo = 60;
-var minuto = 24;
+// Minute and Second
+var second = 60;
+var minute = 24;
  
 // Real Buttons
 var realPomo = document.getElementById("real-button-pomo");
 var realBreak = document.getElementById("real-button-break");
 var realLongBreak = document.getElementById("real-button-long-break");
 
-function createTimerBackEnd(){
-    if(minTotal == 24 && segTotal == 60){
-        realPomo.click();
-    }else if(minTotal == 4 && segTotal == 60){
-        realBreak.click();
-    }else{
-        realLongBreak.click();
-    }
-}
-
-function timer(){   
-    if (segundo > 0){
-        segundo--;
-        if(segundo < 10){segundo = "0"+segundo}
-        movimentBar += barMoviment();
-    }else if(segundo == 0 && minuto > 0){
-        segundo = 59;
-        minuto--;
-        if(minuto < 10){minuto = "0"+ minuto}
-    }
-    htmlTimer.innerText = minuto + ":" + segundo;
-    if(minuto == 0 && segundo == 0){
-        movimentBar=100;
-        createTimerBackEnd();
-        stop.click();
-    }
-    children.style.width = movimentBar + "%";
-
-}
-
-
+// Buttons Play, Pause and Stop
 var play = document.querySelector("#play-timer");
 var pause = document.querySelector("#pause-timer");
 var stop = document.querySelector("#stop-timer");
-var primeiroClick = true;
+var firstClick = true;
 
+// Buttons Fake Pomodoro, Break and Long Break
+var pomoTimer = document.querySelector("#pomo-timer");
+var shortBreak = document.querySelector("#short-break");
+var longBreak = document.querySelector("#long-break");
+
+// Play, Pause and Stop
 if(play){
     play.addEventListener("click", function(){
-        if(primeiroClick){
+        if(firstClick){
             var timer = setInterval('timer();', 1000);
             play.classList.add("disabled");
             pause.classList.remove("disabled");
         }
-        primeiroClick = false;
+        firstClick = false;
         pause.addEventListener("click", function(){
             clearInterval(timer);
-            primeiroClick = true;
+            firstClick = true;
             play.classList.remove("disabled");
             pause.classList.add("disabled");
         });
         stop.addEventListener("click", function(){
             clearInterval(timer);
-            minuto = minTotal;
-            segundo = segTotal;
-            movimentBar = 0;
-            htmlTimer.innerText = (minuto + 1) + ":00";
-            children.style.width = movimentBar + "%";
-            primeiroClick = true;
+            minute = minTotal;
+            second = segTotal;
+            movementBar = 0;
+            htmlTimer.innerText = (minute + 1) + ":00";
+            children.style.width = movementBar + "%";
+            firstClick = true;
             play.classList.remove("disabled");
             pause.classList.remove("disabled");
         });
     });
 };
 
-var pomoTimer = document.querySelector("#pomo-timer");
-var shortBreak = document.querySelector("#short-break");
-var longBreak = document.querySelector("#long-break");
-
-
-function redefineTimer(min, seg){
-    minTotal = min;
-    segTotal = seg;
-    minuto = minTotal;
-    segundo = segTotal;
-    htmlTimer.innerText = (minuto + 1) + ":00";
-    stop.click();
-};
-
-function redefineProgressBar(color){
-    progressBar.classList.remove("red");
-    progressBar.classList.remove("blue");
-    progressBar.classList.add(color);
-    children.classList.remove("red");
-    children.classList.remove("blue");
-    children.classList.add(color);
-};
-
+// Activated functions in click of buttons fake
 if(pomoTimer){
     pomoTimer.addEventListener("click", function(){
         redefineTimer(24, 60);
@@ -125,8 +81,57 @@ if(longBreak){
     });
 };
 
-function barMoviment(){
-    var umPercento = (((minTotal + 1) * 60) / 100);
-    var movimentPorSeg = 1 / umPercento;
-    return movimentPorSeg;
+
+function createTimerBackEnd(){
+    if(minTotal == 24 && segTotal == 60){
+        realPomo.click();
+    }else if(minTotal == 4 && segTotal == 60){
+        realBreak.click();
+    }else{
+        realLongBreak.click();
+    }
+}
+
+function timer(){   
+    if (second > 0){
+        second--;
+        if(second < 10){second = "0"+second}
+        movementBar += barMovement();
+    }else if(second == 0 && minute > 0){
+        second = 59;
+        minute--;
+        if(minute < 10){minute = "0"+ minute}
+    }
+    htmlTimer.innerText = minute + ":" + second;
+    if(minute == 0 && second == 0){
+        movementBar=100;
+        createTimerBackEnd();
+        stop.click();
+    }
+    children.style.width = movementBar + "%";
+
+}
+
+function redefineTimer(min, seg){
+    minTotal = min;
+    segTotal = seg;
+    minute = minTotal;
+    second = segTotal;
+    htmlTimer.innerText = (minute + 1) + ":00";
+    stop.click();
+};
+
+function redefineProgressBar(color){
+    progressBar.classList.remove("red");
+    progressBar.classList.remove("blue");
+    progressBar.classList.add(color);
+    children.classList.remove("red");
+    children.classList.remove("blue");
+    children.classList.add(color);
+};
+
+function barMovement(){
+    var onePercent = (((minTotal + 1) * 60) / 100);
+    var movementPerSeg = 1 / onePercent;
+    return movementPerSeg;
 };
