@@ -1,3 +1,6 @@
+///////////////////////////////
+//  Functionnality of Timer
+//////////////////////////////
 
 var htmlTimer = document.getElementById('timer');
 var segTotal = 60, minTotal = 24;
@@ -127,21 +130,3 @@ function barMoviment(){
     var movimentPorSeg = 1 / umPercento;
     return movimentPorSeg;
 };
-
-
-
-
-// $("#start").on("click", function(e){
-//     e.preventDefault();
-//     var $this = $(this);
-//     var $p = $this.closest("p");
-//     $.get($this.attr('href'), function(data){
-//         if(data.success){
-//             $p.find(".reply-correct-msg").addClass('hidden');
-//             $this.addClass('hidden');
-//             $p.find('.reply-correct-lnk').removeClass('hidden');
-//         } else {
-//             alert(data.message);
-//         }
-//     }, "json");
-// });

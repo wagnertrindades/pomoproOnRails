@@ -4,7 +4,6 @@
       <title>PomoproOnRails</title>
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
       <%= stylesheet_link_tag    'application', '//fonts.googleapis.com/icon?family=Material+Icons' %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <%= csrf_meta_tags %>
     </head>
     <body>
@@ -15,5 +14,6 @@
 
       <%= yield %>
       
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     </body>
 </html>
