@@ -54,6 +54,12 @@ nav.top-nav a.page-title {
 }
 
 /* Icons Collection */
+.collection .title{
+    color: #26A69A;
+}
+.row .collection .collection-item.avatar{
+    padding-left: 30px;
+}
 .collection-item.avatar.valign-wrapper .secondary-content.valign{
     top: 28px;
 }
