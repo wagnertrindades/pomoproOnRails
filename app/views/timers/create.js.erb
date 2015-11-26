@@ -1,10 +1,14 @@
 <% if @timer.status == "pomo" %>
-    $(".list-pomos").append("<li class='li-timers'><i class='flaticon-vegetable10'></i></li>");
+    $(".list-pomos").append("<li class='li-timers'><i class='flaticon-vegetable10 yellow-color'></i></li>");
     Materialize.toast("Pomodoro Concluido", 5000);
 <% elsif @timer.status == "break" %>
-    $(".list-breaks").append("<li class='li-timers'><i class='flaticon-hotdrink2'></i></li>");
+    $(".list-breaks").append("<li class='li-timers'><i class='flaticon-hotdrink2 yellow-color'></i></li>");
     Materialize.toast("Break Concluido", 5000);
 <% else %>
-    $(".list-long-breaks").append("<li class='li-timers'><i class='flaticon-coffee124'></i></li>");
+    $(".list-long-breaks").append("<li class='li-timers'><i class='flaticon-coffee124 yellow-color'></i></li>");
     Materialize.toast("Long Break Concluido", 5000);
 <% end %>
+
+setTimeout(function(){ 
+    $(".li-timers i").removeClass("yellow-color"); 
+}, 3000);
