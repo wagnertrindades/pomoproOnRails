@@ -20,14 +20,23 @@
             <%= render 'show_timer_lists' %>
             <!-- /pomodoros -->
 
-            <!-- sair -->
+            
             <div class="btns-footer">
-
+                <!-- sair -->
                 <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn red close") do %>
                     <i class="material-icons left">input</i>Sair
                 <% end %>
+                <!-- /sair -->
+
+                <!-- notifications -->
+                <a href="#!" id="active-notifications" class="waves-effect waves-light btn blue btn-pomopro">
+                    <i class="material-icons left">add_alert</i>
+                    Ativar Notificações
+                </a>
+                <!-- /notifications  -->
             </div>
-            <!-- /sair -->
+            
+
         </div>
         <!-- /aside -->
         
@@ -104,7 +113,6 @@
         <!-- /content -->
 
     </div>
-
 </main>
 
 
@@ -281,6 +289,43 @@
         ///////////////////////////////////
 
         Notification.requestPermission();
+
+        // Add to button active notifica
+        var buttonNotification = document.getElementById("active-notifications");
+
+        buttonNotification.addEventListener("click", function(){
+            // Let's check if the browser supports notifications
+              if (!("Notification" in window)) {
+                console.log("Este browser não suporta o sistema de notificações, atualize ou instale outro browser!");
+              }
+
+              // Let's check whether notification permissions have alredy been granted
+              else if (Notification.permission === "granted") {
+                // If it's okay let's create a notification
+                spawnNotification("Notificações Ativas!", "//i.imgur.com/dT6hmdc.png");
+              }
+
+              // Otherwise, we need to ask the user for permission
+              else if (Notification.permission !== 'denied') {
+                Notification.requestPermission(function (permission) {
+                  // If the user accepts, let's create a notification
+                  if (permission === "granted") {
+                    spawnNotification("Notificações Ativadas!", "//i.imgur.com/dT6hmdc.png");
+                  }
+                });
+              }
+              // At last, if the user has denied notifications, and you 
+              // want to be respectful there is no need to bother them any more.
+        });
+        
+        // Function notification with icon and body text
+        function spawnNotification(theTitle,theIcon) {
+          var options = {
+            icon: theIcon
+          }
+          var n = new Notification(theTitle,options);
+          setTimeout(n.close.bind(n), 4000);
+        }
     </script>
 <% end %>
 <!-- /javascripts -->
