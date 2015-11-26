@@ -2,7 +2,7 @@ Welcome to Pomopro On Rails!
 ===================
 
 
-This is the project Pomopro done in Ruby on Rails with the goal to make better free application to technique pomodoro.
+This is the project Pomopro done in Ruby on Rails with the goal to make better free application for technique pomodoro.
 And learn and practice Ruby on Rails.
 
 It's hosted in url below:
