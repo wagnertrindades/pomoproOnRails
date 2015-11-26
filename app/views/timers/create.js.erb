@@ -1,14 +1,35 @@
 <% if @timer.status == "pomo" %>
     $(".list-pomos").append("<li class='li-timers'><i class='flaticon-vegetable10 yellow-color'></i></li>");
-    Materialize.toast("Pomodoro Concluido", 5000);
+    spawnNotification(
+        "Parábens você concluiu o pomodoro", 
+        "https://photos-4.dropbox.com/t/2/AAAvl5SpsH-2mrD1fq4v9K9DZnvBLyn-HOjSpVn1O_tDOw/12/339617692/png/32x32/1/_/1/2/pomodoro.png/ENapo9MCGOEEIAcoBw/3BhOi3M5ub3CClDkwO_lJpl34io4k_128kLPljLOwiI?size=1280x960&size_mode=3",
+        "Pomodoro Concluido!"
+    );
 <% elsif @timer.status == "break" %>
     $(".list-breaks").append("<li class='li-timers'><i class='flaticon-hotdrink2 yellow-color'></i></li>");
-    Materialize.toast("Break Concluido", 5000);
+    spawnNotification(
+        "Você concluiu um Break, agora volte ao trabalho", 
+        "https://photos-1.dropbox.com/t/2/AAAbhjjgHNC4U_IvnudqWxJeqxzdgcPsEeYtI-CoKc7zjg/12/339617692/png/32x32/1/_/1/2/break.png/ENapo9MCGOEEIAcoBw/6foDf7uyqqbXn10c4N0c84LDzLgKe3F6xuONjj-wh8E?size=1280x960&size_mode=3",
+        "Break Concluido!");
+
 <% else %>
     $(".list-long-breaks").append("<li class='li-timers'><i class='flaticon-coffee124 yellow-color'></i></li>");
-    Materialize.toast("Long Break Concluido", 5000);
+    spawnNotification(
+        "Você concluiu um Long Break, agora volte ao trabalho.", 
+        "https://photos-1.dropbox.com/t/2/AABJp7wSCNIABASlHps7SseKevafcnVX3L6C9iDc9nc-FQ/12/339617692/png/32x32/1/_/1/2/longBreak.png/ENapo9MCGOEEIAcoBw/A6pTtAhT7Q2T6I-a_nk6zmAzKYTpO7WeIxiHUx1Ijdw?size=1280x960&size_mode=3",
+        "Long Break Concluido!"
+    );
 <% end %>
 
 setTimeout(function(){ 
     $(".li-timers i").removeClass("yellow-color"); 
 }, 3000);
+
+function spawnNotification(theBody,theIcon,theTitle) {
+  var options = {
+    body: theBody,
+    icon: theIcon
+  }
+  var n = new Notification(theTitle,options);
+  setTimeout(n.close.bind(n), 4000); 
+}
