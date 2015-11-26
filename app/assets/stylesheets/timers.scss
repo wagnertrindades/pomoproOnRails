@@ -48,8 +48,14 @@ nav.top-nav a.page-title {
 }
 
 .content-crono,
-.content-perfil{
+.container.content-perfil,
+.content-perfil h4{
     margin-top: 10rem;
+}
+
+/* Icons Collection */
+.collection-item.avatar.valign-wrapper .secondary-content.valign{
+    top: 28px;
 }
 
 /* Botoes pomodoro */

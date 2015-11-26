@@ -1,39 +1,110 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<main>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="row">
+        <!-- aside -->
+        <div class="col s3 aside blue-grey darken-3">
+            <!-- perfil -->
+            <div class="collection">
+                <div class="collection-item avatar valign-wrapper">
+                    <span class="title valign"><%= @user.email %></span>
+                    <!-- <a href="#!" class="secondary-content valign"><i class="material-icons">perm_identity</i></a> -->
+                    <%= link_to(:back, class: "secondary-content valign left") do %>
+                      <i class="material-icons">query_builder</i>
+                    <% end %>
+                </div>
+            </div>
+            <!-- /perfil -->
+            
+            <!-- menu editar -->
+<!--             <div class="collection">
+                <a href="#!" class="collection-item active">Meu perfil</a>
+                <a href="#!" class="collection-item">Editar perfil</a>
+                <a href="#!" class="collection-item">Editar senha</a>
+            </div> -->
+            <!-- /menu editar -->
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+            
+            <div class="btns-footer">
+                <!-- sair -->
+                <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn red close") do %>
+                  <i class="material-icons left">input</i>Sair
+                <% end %>
+                <!-- /sair -->
+                
+                <!-- timer -->
+                <%= link_to(:back, class: "waves-effect waves-light btn blue btn-pomopro") do %>
+                  <i class="material-icons left">query_builder</i>
+                  Pomopro Timer
+                <% end %>                     
+            </div>
+            
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+        </div>
+        <!-- /aside -->
+        
+        <!-- content -->
+        <div id="content" class="col s9 content offset-s3">
+            <!-- title -->
+            <nav class="top-nav teal">
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a class="page-title">
+                            Editar Perfil
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <!-- /title -->
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+            <div class="container content-perfil">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+                <div class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true %>
+                </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
 
-<h3>Cancel my account</h3>
+                <div class="field">
+                  <%= f.label :password %> <i>(Deixe em branco caso não queira mudar a sua senha atual)</i><br />
+                  <%= f.password_field :password, autocomplete: "off" %>
+                </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+                <div class="field">
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                </div>
 
-<%= link_to "Back", :back %>
+                <div class="field">
+                  <%= f.label :current_password %> <i>(Nós precisamos da sua senha atual para fazer as alterações)</i><br />
+                  <%= f.password_field :current_password, autocomplete: "off" %>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit "Alterar", class: "btn waves-effect waves-light waves-input-wrapper" %>
+                </div>
+              <% end %>
+
+              <h4>Cancelar minha conta</h4>
+
+              <p>Não está feliz com sua conta? <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn waves-effect waves-light waves-input-wrapper red" %></p>
+
+              <%= link_to "Voltar", :back %>
+
+            </div>
+        </div>
+        <!-- /content -->
+
+    </div>
+
+</main>
+
+
+
+
+

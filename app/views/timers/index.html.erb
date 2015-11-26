@@ -7,9 +7,11 @@
             <!-- perfil -->
             <div class="collection">
                 <div class="collection-item avatar valign-wrapper">
-                    <img src="img/mussum.jpg" alt="" class="circle">
-                    <span class="title valign">Mussum da Silvis</span>
-                    <a href="#!" class="secondary-content valign"><i class="material-icons">perm_identity</i></a>
+                    <span class="title valign"><%= @user.email %></span>
+                    <!-- <a href="#!" class="secondary-content valign"><i class="material-icons">perm_identity</i></a> -->
+                    <%= link_to(edit_user_registration_path, class: "secondary-content valign") do %>
+                        <i class="material-icons">perm_identity</i>
+                    <% end %>
                 </div>
             </div>
             <!-- /perfil -->
@@ -108,7 +110,7 @@
 
 
 
-
+<!-- javascripts -->
 <% content_for :js do %>
     <script type='text/javascript'>
 
@@ -276,3 +278,4 @@
 
     </script>
 <% end %>
+<!-- /javascripts -->
