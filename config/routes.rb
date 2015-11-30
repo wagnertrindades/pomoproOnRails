@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :path => "accounts" 
 
-  resources :users do
+  scope path: :users, as: "users" do
     resources :timers, only: [:create, :index]
   end
 
