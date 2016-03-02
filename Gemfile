@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4.0'
+  gem 'fuubar'
 end
 
 group :development do
@@ -22,7 +23,7 @@ group :development do
 end
 
 group :test do
-      gem 'capybara', '~> 2.2.0'
+    gem 'capybara', '~> 2.2.0'
     gem 'shoulda-matchers', '~> 3.0.1'
 end
 
