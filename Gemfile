@@ -2,36 +2,36 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'rails', '4.2.6'
-gem 'pg', '~> 0.15'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'pg', '0.18.4'
+gem 'sass-rails', '5.0.4'
+gem 'uglifier', '3.0.0'
+gem 'coffee-rails', '4.1.1'
+gem 'jquery-rails', '4.1.1'
+gem 'turbolinks', '2.5.3'
+gem 'jbuilder', '2.5.0'
+gem 'sdoc', '0.4.1', group: :doc
 
 group :development, :test do
-  gem 'byebug'
-  gem 'rspec-rails', '~> 3.4.0'
-  gem 'fuubar'
+  gem 'byebug', '9.0.5'
+  gem 'rspec-rails', '3.4.2'
+  gem 'fuubar', '2.0.0'
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
+  gem 'web-console', '2.3.0'
+  gem 'spring', '1.7.1'
 end
 
 group :test do
-    gem 'capybara', '~> 2.2.0'
-    gem 'shoulda-matchers', '~> 3.0.1'
+  gem 'capybara', '2.2.1'
+  gem 'shoulda-matchers', '3.0.1'
 end
 
 group :production do
-  gem 'rails_12factor'
+  gem 'rails_12factor', '0.0.3'
 end
 
-gem 'puma'
-gem 'rails-i18n', '~> 4.0.0'
-gem 'devise'
-gem 'materialize-sass'
+gem 'puma', '3.4.0'
+gem 'rails-i18n', '4.0.8'
+gem 'devise', '4.1.1'
+gem 'materialize-sass', '0.97.6'
