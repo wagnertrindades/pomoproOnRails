@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Timer, type: :model do
   let(:timer) { build_stubbed(:timer) }
 
+  it { is_expected.to belong_to(:user) }
+
   it "validates inclusion of status" do
     expect validate_inclusion_of(:status).in_array(%w(pomo break long_break))
   end
