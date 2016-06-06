@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Timer, type: :model do
-  let(:timer) { build_stubbed(:timer) }
+  subject(:timer) { build(:timer) }
 
   it { is_expected.to belong_to(:user) }
 
