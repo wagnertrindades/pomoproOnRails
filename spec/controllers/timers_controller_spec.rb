@@ -9,13 +9,18 @@ RSpec.describe TimersController, type: :controller do
 
     it 'assigns @user' do
       get :index, user_id: user.id
-      expect(assigns(:user)).to eq(user)
+      expect(assigns(:user)).to eq user
     end
 
     it 'assigns @timers' do
       timer = create(:timer, :user => user)
       get :index, user_id: user.id
-      expect(assigns(:timers)).to eq([timer])
+      expect(assigns(:timers)).to eq [timer]
+    end
+
+    it 'assigns @timer' do
+      get :index, user_id: user.id
+      expect(assigns(:timer)).to be_an_instance_of Timer
     end
 
     it 'renders the index template' do
