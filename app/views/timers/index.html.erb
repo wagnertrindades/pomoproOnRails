@@ -1,6 +1,4 @@
-
 <main>
-
     <div class="row">
         <!-- aside -->
         <div class="col s3 aside blue-grey darken-3">
@@ -20,7 +18,6 @@
             <%= render 'show_timer_lists' %>
             <!-- /pomodoros -->
 
-            
             <div class="btns-footer">
                 <!-- sair -->
                 <%= link_to(destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn red close") do %>
@@ -35,11 +32,10 @@
                 </a>
                 <!-- /notifications  -->
             </div>
-            
 
         </div>
         <!-- /aside -->
-        
+
         <!-- content -->
         <div id="content" class="col s9 content offset-s3">
             <!-- title -->
@@ -95,28 +91,24 @@
                     <a id="stop-timer" class="btn-floating btn-large waves-effect waves-light teal">
                         <i class="material-icons">stop</i>
                     </a>
-                    
                 </div>
                 <!-- /buttons play -->
 
                 <!-- buttons pomodoro create db -->
                 <div class="real-buttons">
-                    <%= button_to "Pomodoro", user_timers_path(:user_id => current_user.id, :status => "pomo"), method: :create, remote: true, id:"real-button-pomo" %> 
+                    <%= button_to "Pomodoro", user_timers_path(:user_id => current_user.id, :status => "pomo"), method: :create, remote: true, id:"real-button-pomo" %>
                     <%= button_to "Break", user_timers_path(:user_id => current_user.id, :status => "break"), method: :create, remote: true, id:"real-button-break" %>
                     <%= button_to "Long Break", user_timers_path(:user_id => current_user.id, :status => "long_break"), method: :create, remote: true, id:"real-button-long-break" %>
                 </div>
                 <!-- /buttons pomodoro create db -->
 
-            </div>                
+            </div>
 
         </div>
         <!-- /content -->
 
     </div>
 </main>
-
-
-
 
 <!-- javascripts -->
 <% content_for :js do %>
@@ -138,7 +130,7 @@
         // Minute and Second
         var second = 60;
         var minute = 24;
-         
+
         // Real Buttons
         var realPomo = document.getElementById("real-button-pomo");
         var realBreak = document.getElementById("real-button-break");
@@ -217,7 +209,7 @@
             }
         }
 
-        function timer(){   
+        function timer(){
             if (second > 0){
                 second--;
                 if(second < 10){second = "0"+second}
@@ -234,7 +226,6 @@
                 stop.click();
             }
             children.style.width = movementBar + "%";
-
         }
 
         function redefineTimer(min, seg){
@@ -270,10 +261,10 @@
         var pomosList = document.querySelector(".list-pomos");
         var breaksList = document.querySelector(".list-breaks");
         var longBreaksList = document.querySelector(".list-long-breaks");
-        // Containers for timers length 
+        // Containers for timers length
         var pomosContainer = document.getElementById("pomos-length");
         var breaksContainer = document.getElementById("breaks-length");
-        var longBreaksContainer = document.getElementById("long-breaks-length"); 
+        var longBreaksContainer = document.getElementById("long-breaks-length");
         // Executed functions
         itensLength(pomosList, pomosContainer);
         itensLength(breaksList, breaksContainer);
@@ -314,10 +305,10 @@
                   }
                 });
               }
-              // At last, if the user has denied notifications, and you 
+              // At last, if the user has denied notifications, and you
               // want to be respectful there is no need to bother them any more.
         });
-        
+
         // Function notification with icon and body text
         function spawnNotification(theTitle,theIcon) {
           var options = {
