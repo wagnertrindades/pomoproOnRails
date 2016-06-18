@@ -15,6 +15,9 @@ group :development, :test do
   gem 'byebug', '9.0.5'
   gem 'rspec-rails', '3.4.2'
   gem 'fuubar', '2.0.0'
+  gem 'pry', '0.10.3'
+  gem 'rspec-mocks', '3.4.1'
+  gem 'factory_girl_rails', '4.7'
 end
 
 group :development do
