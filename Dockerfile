@@ -1,12 +1,15 @@
-# sudo docker build -t "wagnertrindade/pomopro:latest" -f docker-images/promopro-dev .
-FROM rails:4.2.6
+FROM ruby:2.3.1
 
-# see update.sh for why all "apt-get install"s have to stay as one long line
-RUN apt-get update \
-    && apt-get install -y apt-utils \
-    && apt-get install -y libicu-dev \
-    && apt-get install -y nodejs --no-install-recommends
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs postgresql-client
 
-COPY Gemfile ./Gemfile
+COPY . /pomoproOnRails
+WORKDIR /pomoproOnRails
 
-RUN bundle install
+RUN gem install bundler -v 1.17.3 && bundle install --jobs 3 --retry 3
+RUN bundle clean --force
+RUN rake assets:precompile
+
+ENV PORT 3000
+EXPOSE $PORT
+
+CMD ["rails", "server", "-b", "0.0.0.0"]

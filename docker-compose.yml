@@ -1,19 +1,20 @@
-web:
-  image: wagnertrindade/pomopro:latest
-  command: bash -c "rm -f /var/app/tmp/pids/server.pid && /var/app/script/bootstrap"
-  restart: always
-  working_dir: /var/app
-  volumes:
-    - .:/var/app
-  links:
-    - db
-  ports:
-   - "80:3000"
-  environment:
-    POSTGRES_URL: db
-db:
+version: '3.8'
+services:
+ db:
   image: postgres:9.4.4
-  expose:
-    - '5432'
   volumes:
-    - wt-postgres:/var/lib/postgresql/data
+    - ./tmp/db:/var/lib/postgresql/data
+  environment:
+    POSTGRES_PASSWORD: password
+  ports:
+    - "5432:5432"
+ web:
+  build: .
+  command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+  volumes:
+    - .:/pomoproOnRails
+  ports:
+    - "3000:3000"
+  depends_on:
+    - db
