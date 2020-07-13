@@ -52,6 +52,7 @@ $ rails s
 ```
 And access in your browser http://localhost:3000
 
+----------
 
 How to install project with Docker:
 -------------
