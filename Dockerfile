@@ -6,7 +6,8 @@ COPY . /pomoproOnRails
 WORKDIR /pomoproOnRails
 
 RUN gem install bundler -v 2.1.4
-RUN bundle update --jobs 3 --retry 3
+#RUN bundle update --jobs 3 --retry 3
+RUN bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java
 RUN bundle install --jobs 3 --retry 3
 RUN bundle clean --force
 RUN rake assets:precompile
