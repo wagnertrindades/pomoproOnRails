@@ -34,7 +34,7 @@ group :production do
   gem 'rails_12factor', '0.0.3'
 end
 
-gem 'puma', '3.4.0'
+gem 'puma', '4.3.11'
 gem 'rails-i18n', '4.0.8'
 gem 'devise', '4.1.1'
 gem 'materialize-sass', '0.97.6'
